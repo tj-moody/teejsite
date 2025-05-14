@@ -1,0 +1,22 @@
+# syntax=docker/dockerfile:1
+
+# Build stage
+FROM golang:1.24.3 AS build
+
+WORKDIR /app
+COPY . .
+
+# Build the Go app
+RUN go build -o server .
+
+# Final image
+FROM debian:bookworm-slim
+
+# Copy the binary from the builder
+COPY --from=build /app/server /server
+
+# Expose port (adjust if needed)
+EXPOSE 8080
+
+# Run the server
+ENTRYPOINT ["/server"]
