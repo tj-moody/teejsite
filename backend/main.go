@@ -64,6 +64,6 @@ func main() {
 		port = "8080" // Fallback
 	}
 	handleWithCors(HandleVideos)
-	log.Println("Server running at http://localhost:" + port)
+	log.Println("Server running at http://0.0.0.0:" + port)
 	log.Fatal(http.ListenAndServe("0.0.0.0:"+port, nil))
 }
