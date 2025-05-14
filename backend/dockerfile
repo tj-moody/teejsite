@@ -1,22 +1,26 @@
-# syntax=docker/dockerfile:1
+# Start with a Go base image
+FROM golang:1.20-alpine as builder
 
-# Build stage
-FROM golang:1.24.3 AS build
-
+# Set the current working directory inside the container
 WORKDIR /app
+
+# Copy the rest of the backend code to the container
 COPY . .
 
 # Build the Go app
-RUN go build -o server .
+RUN go build -C backend/ -o server .
 
-# Final image
-FROM debian:bookworm-slim
+# Start with a smaller image for the final stage (reduces image size)
+FROM alpine:latest
 
-# Copy the binary from the builder
-COPY --from=build /app/server /server
+# Set the working directory
+WORKDIR /root/
 
-# Expose port (adjust if needed)
+# Copy the compiled Go binary from the builder image
+COPY --from=builder /app/backend .
+
+# Expose the port your app will run on
 EXPOSE 8080
 
-# Run the server
-ENTRYPOINT ["/server"]
+# Define the command to run your Go app
+CMD ["./server"]
