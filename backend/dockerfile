@@ -4,6 +4,10 @@ FROM golang:1.20-alpine as builder
 # Set the current working directory inside the container
 WORKDIR /app
 
+COPY go.mod go.sum ./
+
+RUN go mod download
+
 # Copy the rest of the backend code to the container
 COPY . .
 
