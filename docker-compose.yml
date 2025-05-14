@@ -1,17 +1,17 @@
 version: "3.8"
 
 services:
-  backend:
+  server:
     build:
-      context: backend/
+      context: server/
     ports:
       - "8080:8080"
 
-  frontend:
+  client:
     stop_grace_period: 500ms
     build:
-      context: frontend/
+      context: client/
     ports:
       - "3000:3000"
     volumes:
-      - ./frontend:/app # Live reloading for all served files
+      - ./client:/app # Live reloading for all served files
