@@ -1,13 +1,20 @@
 "use strict";
-const API_BASE = "http://localhost:8080";
+const API_BASE = window.location.hostname === "localhost"
+    ? "http://localhost:8080"
+    : "teejsite-production.up.railway.app";
+async function request(path) {
+    // TODO: Proper checks for possible different responses
+    const result = await fetch(`${API_BASE}${path}`);
+    const response = await result.json();
+    return response;
+}
 async function import_videos() {
     // Video schema:
     // `title`: string
     // `thumbnail_url`: string
     // `video_url`: string
     // `uploader`: string
-    const result = await fetch(`${API_BASE}/api/goodtube`);
-    const videos = await result.json();
+    const videos = await request("/api/goodtube");
     const container = document.getElementById("videos");
     if (container === null) {
         return;
