@@ -1,0 +1,42 @@
+body {
+    font-family: sans-serif;
+    background: #000000;
+    color: white;
+    margin: 0px;
+}
+
+header {
+    background: #202020;
+    color: white;
+    text-align: left;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    padding: 1rem 0.5rem;
+    text-decoration: none;
+}
+
+#banner {
+    background: #202020;
+    color: white;
+    text-align: left;
+    padding: 1.5rem 0.75rem;
+    margin-bottom: 3rem;
+    margin-left: 3rem;
+    text-decoration: none;
+}
+
+#subproject-link {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    background: #333;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    font-weight: bold;
+    margin-left: 3rem;
+    transition: background 0.3s ease;
+}
+
+#subproject-link:hover {
+    background: #555;
+}

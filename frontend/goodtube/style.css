@@ -1,0 +1,41 @@
+body {
+    font-family: sans-serif;
+    background: #000000;
+    color: white;
+    margin: 0px;
+}
+
+header {
+    background: #202020;
+    color: white;
+    text-align: left;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    padding: 1rem 0.5rem;
+    text-decoration: none;
+}
+
+#banner {
+    background: #202020;
+    color: white;
+    text-align: left;
+    padding: 1.5rem 0.75rem;
+    margin-left: 3rem;
+    margin-bottom: 3rem;
+    text-decoration: none;
+}
+
+#videos {
+    text-align: center;
+    display: block;
+    padding-top: 20px;
+}
+
+#video-card {
+    display: block;
+    margin-top: 20px;
+}
+
+#video-title {
+    color: white;
+}
