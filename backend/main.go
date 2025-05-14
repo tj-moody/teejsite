@@ -36,14 +36,6 @@ func enableCORS(w http.ResponseWriter) {
 }
 
 func HandleVideos(w http.ResponseWriter, r *http.Request) {
-	enableCORS(w)
-
-	if r.Method == http.MethodOptions {
-		// Preflight request
-		w.WriteHeader(http.StatusOK)
-		return
-	}
-
 	videos := VIDEOS
 	if r.Method != http.MethodGet {
 		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
