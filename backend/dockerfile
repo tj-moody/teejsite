@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . .
 
 # Build the Go app
-RUN go build -o server .
+RUN go build -C backend/ -o server .
 
 # Start with a smaller image for the final stage (reduces image size)
 FROM alpine:latest
@@ -17,7 +17,7 @@ FROM alpine:latest
 WORKDIR /root/
 
 # Copy the compiled Go binary from the builder image
-COPY --from=builder /app/ .
+COPY --from=builder /app/backend .
 
 # Expose the port your app will run on
 EXPOSE 8080

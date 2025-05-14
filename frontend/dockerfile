@@ -7,4 +7,4 @@ COPY . .
 EXPOSE 3000
 
 CMD ["tsc", "-p", "frontend/"],
-CMD ["python3", "-m", "http.server", "3000"]
+CMD ["python3", "-m", "http.server", "3000", "--directory", "frontend/"]
