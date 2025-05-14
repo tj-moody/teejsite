@@ -43,11 +43,11 @@ func HandleVideos(w http.ResponseWriter, r *http.Request) {
 	}
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(videos)
-	log.Println("Request", r.Method, r.URL.Path, r.UserAgent())
 }
 
 func handleWithCors(handler func(w http.ResponseWriter, r *http.Request)) {
 	http.HandleFunc("/api/goodtube", func(w http.ResponseWriter, r *http.Request) {
+		log.Println("Request", r.Method, r.URL.Path, r.Header)
 		enableCORS(w)
 		if r.Method == http.MethodOptions {
 			w.WriteHeader(http.StatusOK)
@@ -65,5 +65,5 @@ func main() {
 	}
 	handleWithCors(HandleVideos)
 	log.Println("Server running at http://localhost:" + port)
-	log.Fatal(http.ListenAndServe(":"+port, nil))
+	log.Fatal(http.ListenAndServe("0.0.0.0:"+port, nil))
 }
