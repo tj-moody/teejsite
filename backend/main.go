@@ -30,9 +30,13 @@ var VIDEOS = []Video{
 }
 
 func enableCORS(w http.ResponseWriter) {
-	w.Header().Set("Access-Control-Allow-Origin", "*") // or specific domain for security
-	w.Header().Set("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
-	w.Header().Set("Access-Control-Allow-Headers", "Content-Type, Authorization")
+	w.Header().Add("Access-Control-Allow-Origin", "*")
+	w.Header().Add("Access-Control-Allow-Methods", "GET, POST,OPTIONS")
+	w.Header().Add("Access-Control-Allow-Headers", "Content-Type, Origin, Accept, token")
+
+	w.Header().Add("Vary", "Origin")
+	w.Header().Add("Vary", "Access-Control-Request-Method")
+	w.Header().Add("Vary", "Access-Control-Request-Headers")
 }
 
 func HandleVideos(w http.ResponseWriter, r *http.Request) {
@@ -61,7 +65,7 @@ func handleWithCors(handler func(w http.ResponseWriter, r *http.Request)) {
 func main() {
 	port := os.Getenv("PORT")
 	if port == "" {
-		port = "8080" // Fallback
+		port = "8080"
 	}
 	handleWithCors(HandleVideos)
 	log.Println("Server running at http://0.0.0.0:" + port)
