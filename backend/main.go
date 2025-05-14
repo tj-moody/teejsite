@@ -80,8 +80,8 @@ func main() {
 	http.HandleFunc("/api/goodtube", handleWithCors(HandleVideos))
 
 	server := &http.Server{
-		Addr:    ":" + port, // Will bind to all interfaces by default
-		Handler: nil,        // Using default mux
+		Addr:    "0.0.0.0:" + port,
+		Handler: nil,
 	}
 
 	log.Println("Server running at http://0.0.0.0:" + port)
