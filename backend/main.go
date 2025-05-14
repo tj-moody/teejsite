@@ -72,6 +72,8 @@ func main() {
 	if port == "" {
 		log.Println("$PORT not found... defaulting to 8080")
 		port = "8080"
+	} else {
+		log.Println("$PORT found... assigned " + port)
 	}
 	http.HandleFunc("/", handleWithCors(rootHandler))
 	http.HandleFunc("/api/goodtube", handleWithCors(HandleVideos))
