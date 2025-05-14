@@ -2,8 +2,8 @@
 //   ? "http://localhost:8080"
 //   : "https://teejsite-production.up.railway.app";
 
-// const API_BASE = "https://teejsite-production.up.railway.app";
-const API_BASE = "http://localhost:8080";
+const API_BASE = "https://teejsite-production.up.railway.app";
+// const API_BASE = "http://localhost:8080";
 async function request(path: string) {
     // TODO: Proper checks for possible different responses
     const address = API_BASE + path;
