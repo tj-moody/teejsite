@@ -5,7 +5,6 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"time"
 )
 
 type Video struct {
@@ -71,18 +70,11 @@ func rootHandler(w http.ResponseWriter, r *http.Request) {
 func main() {
 	port := os.Getenv("PORT")
 	if port == "" {
+		log.Println("$PORT not found... defaulting to 8080")
 		port = "8080"
 	}
 	http.HandleFunc("/", handleWithCors(rootHandler))
 	http.HandleFunc("/api/goodtube", handleWithCors(HandleVideos))
-
-	go func() {
-		ticker := time.NewTicker(10 * time.Second) // every 10 seconds
-		defer ticker.Stop()
-		for range ticker.C {
-			log.Println("Server is alive")
-		}
-	}()
 
 	log.Println("Server running at http://0.0.0.0:" + port)
 	err := http.ListenAndServe("0.0.0.0:"+port, nil)
