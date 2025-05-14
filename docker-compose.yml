@@ -3,15 +3,13 @@ version: "3.8"
 services:
   backend:
     build:
-      context: .
-      dockerfile: backend/Dockerfile
+      context: backend/
     ports:
       - "8080:8080"
 
   frontend:
     stop_grace_period: 500ms
     build:
-      context: .
-      dockerfile: frontend/Dockerfile
+      context: frontend/
     ports:
       - "3000:3000"
