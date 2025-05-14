@@ -6,6 +6,9 @@ const API_BASE = window.location.hostname === "localhost"
 async function request(path: string) {
     // TODO: Proper checks for possible different responses
     const result = await fetch(`${API_BASE}${path}`);
+    if (!result.ok) {
+        throw new Error(`HTTP error! status: ${result.status}`);
+    }
     const response = await result.json();
     return response;
 }
