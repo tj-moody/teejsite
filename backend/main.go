@@ -75,11 +75,17 @@ func main() {
 	} else {
 		log.Println("$PORT found... assigned " + port)
 	}
+
 	http.HandleFunc("/", handleWithCors(rootHandler))
 	http.HandleFunc("/api/goodtube", handleWithCors(HandleVideos))
 
+	server := &http.Server{
+		Addr:    ":" + port, // Will bind to all interfaces by default
+		Handler: nil,        // Using default mux
+	}
+
 	log.Println("Server running at http://0.0.0.0:" + port)
-	err := http.ListenAndServe("0.0.0.0:"+port, nil)
+	err := server.ListenAndServe()
 	if err != nil {
 		log.Fatalf("Server failed: %s", err)
 	}
