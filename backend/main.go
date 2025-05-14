@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"github.com/gin-gonic/gin"
 	"log"
 	"net/http"
 	"os"
@@ -76,17 +77,28 @@ func main() {
 		log.Println("$PORT found... assigned " + port)
 	}
 
-	http.HandleFunc("/", handleWithCors(rootHandler))
-	http.HandleFunc("/api/goodtube", handleWithCors(HandleVideos))
+	router := gin.Default()
 
-	server := &http.Server{
-		Addr:    "0.0.0.0:" + port,
-		Handler: nil,
-	}
+	// Define a GET route
+	router.GET("/api/goodtube", func(c *gin.Context) {
+		// Sends "Hello World" to the user
+		c.JSON(200, gin.H{
+			"message": "Hello, World!",
+		})
+	})
+	 router.Run(":" + port)
 
-	log.Println("Server running at http://0.0.0.0:" + port)
-	err := server.ListenAndServe()
-	if err != nil {
-		log.Fatalf("Server failed: %s", err)
-	}
+	// http.HandleFunc("/", handleWithCors(rootHandler))
+	// http.HandleFunc("/api/goodtube", handleWithCors(HandleVideos))
+	//
+	// server := &http.Server{
+	//     Addr:    "0.0.0.0:" + port,
+	//     Handler: nil,
+	// }
+	//
+	// log.Println("Server running at http://0.0.0.0:" + port)
+	// err := server.ListenAndServe()
+	// if err != nil {
+	//     log.Fatalf("Server failed: %s", err)
+	// }
 }
