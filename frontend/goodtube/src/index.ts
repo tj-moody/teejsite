@@ -1,11 +1,14 @@
-const API_BASE = window.location.hostname === "localhost"
-  ? "http://localhost:8080"
-  : "teejsite-production.up.railway.app";
+// const API_BASE = window.location.hostname === "localhost"
+//   ? "http://localhost:8080"
+//   : "https://teejsite-production.up.railway.app";
 
-// const API_BASE = "teejsite-production.up.railway.app";
+const API_BASE = "https://teejsite-production.up.railway.app";
+// const API_BASE = "http://localhost:8080";
 async function request(path: string) {
     // TODO: Proper checks for possible different responses
-    const result = await fetch(`${API_BASE}${path}`);
+    const address = API_BASE + path;
+    console.log(`Fetching from ${address}`)
+    const result = await fetch(`${address}`);
     if (!result.ok) {
         throw new Error(`HTTP error! status: ${result.status}`);
     }

@@ -30,9 +30,26 @@ var VIDEOS = []Video{
 }
 
 func enableCORS(w http.ResponseWriter) {
-	w.Header().Set("Access-Control-Allow-Origin", "*") // or specific domain for security
+	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
-	w.Header().Set("Access-Control-Allow-Headers", "Content-Type, Authorization")
+	w.Header().Set("Access-Control-Allow-Headers", "Content-Type, Origin, Accept, token")
+
+	w.Header().Set("Vary", "Origin")
+	w.Header().Set("Vary", "Access-Control-Request-Method")
+	w.Header().Set("Vary", "Access-Control-Request-Headers")
+}
+
+func handleWithCors(handler func(w http.ResponseWriter, r *http.Request)) func(http.ResponseWriter, *http.Request) {
+	return func(w http.ResponseWriter, r *http.Request) {
+		enableCORS(w)
+		log.Println("Request", r.Method, r.URL.Path, r.Header)
+		if r.Method == http.MethodOptions {
+			w.WriteHeader(http.StatusOK)
+			return
+		}
+		handler(w, r)
+
+	}
 }
 
 func HandleVideos(w http.ResponseWriter, r *http.Request) {
@@ -42,28 +59,34 @@ func HandleVideos(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
 	json.NewEncoder(w).Encode(videos)
 }
 
-func handleWithCors(handler func(w http.ResponseWriter, r *http.Request)) {
-	http.HandleFunc("/api/goodtube", func(w http.ResponseWriter, r *http.Request) {
-		log.Println("Request", r.Method, r.URL.Path, r.Header)
-		enableCORS(w)
-		if r.Method == http.MethodOptions {
-			w.WriteHeader(http.StatusOK)
-			return
-		}
-		handler(w, r)
-
-	})
+func rootHandler(w http.ResponseWriter, r *http.Request) {
+	w.Write([]byte("Server is running"))
 }
 
 func main() {
 	port := os.Getenv("PORT")
 	if port == "" {
-		port = "8080" // Fallback
+		log.Println("$PORT not found... defaulting to 8080")
+		port = "8080"
+	} else {
+		log.Println("$PORT found... assigned " + port)
 	}
-	handleWithCors(HandleVideos)
+
+	http.HandleFunc("/", handleWithCors(rootHandler))
+	http.HandleFunc("/api/goodtube", handleWithCors(HandleVideos))
+
+	server := &http.Server{
+		Addr:    "0.0.0.0:" + port,
+		Handler: nil,
+	}
+
 	log.Println("Server running at http://0.0.0.0:" + port)
-	log.Fatal(http.ListenAndServe("0.0.0.0:"+port, nil))
+	err := server.ListenAndServe()
+	if err != nil {
+		log.Fatalf("Server failed: %s", err)
+	}
 }

@@ -1,0 +1,10 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+COPY . .
+
+EXPOSE 3000
+
+CMD ["tsc", "-p", "frontend/"],
+CMD ["python3", "-m", "http.server", "3000"]
