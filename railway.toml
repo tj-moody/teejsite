@@ -1,3 +1,6 @@
   "build": {
     "dockerfilePath": "Dockerfile.backend"
   }
+  [build]
+  dockerfilePath = "backend/Dockerfile"
+  builder = "DOCKERFILE"
