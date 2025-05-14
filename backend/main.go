@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"time"
 )
 
 type Video struct {
@@ -41,7 +42,7 @@ func enableCORS(w http.ResponseWriter) {
 
 func handleWithCors(handler func(w http.ResponseWriter, r *http.Request)) func(http.ResponseWriter, *http.Request) {
 	return func(w http.ResponseWriter, r *http.Request) {
-        enableCORS(w)
+		enableCORS(w)
 		log.Println("Request", r.Method, r.URL.Path, r.Header)
 		if r.Method == http.MethodOptions {
 			w.WriteHeader(http.StatusOK)
@@ -72,8 +73,16 @@ func main() {
 	if port == "" {
 		port = "8080"
 	}
-	http.HandleFunc("/",             handleWithCors(rootHandler))
+	http.HandleFunc("/", handleWithCors(rootHandler))
 	http.HandleFunc("/api/goodtube", handleWithCors(HandleVideos))
+
+	go func() {
+		ticker := time.NewTicker(10 * time.Second) // every 10 seconds
+		defer ticker.Stop()
+		for range ticker.C {
+			log.Println("Server is alive")
+		}
+	}()
 
 	log.Println("Server running at http://0.0.0.0:" + port)
 	err := http.ListenAndServe("0.0.0.0:"+port, nil)
