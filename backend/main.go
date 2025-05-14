@@ -1,10 +1,10 @@
 package main
 
 import (
-	"os"
 	"encoding/json"
 	"log"
 	"net/http"
+	"os"
 )
 
 type Video struct {
@@ -37,6 +37,13 @@ func enableCORS(w http.ResponseWriter) {
 
 func HandleVideos(w http.ResponseWriter, r *http.Request) {
 	enableCORS(w)
+
+	if r.Method == http.MethodOptions {
+		// Preflight request
+		w.WriteHeader(http.StatusOK)
+		return
+	}
+
 	videos := VIDEOS
 	if r.Method != http.MethodGet {
 		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
@@ -47,12 +54,24 @@ func HandleVideos(w http.ResponseWriter, r *http.Request) {
 	log.Println("Request", r.Method, r.URL.Path, r.UserAgent())
 }
 
+func handleWithCors(handler func(w http.ResponseWriter, r *http.Request)) {
+	http.HandleFunc("/api/goodtube", func(w http.ResponseWriter, r *http.Request) {
+		enableCORS(w)
+		if r.Method == http.MethodOptions {
+			w.WriteHeader(http.StatusOK)
+			return
+		}
+		handler(w, r)
+
+	})
+}
+
 func main() {
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "8080" // Fallback
 	}
-	http.HandleFunc("/api/goodtube", HandleVideos)
-	log.Println("Server running at http://localhost:8080")
-	log.Fatal(http.ListenAndServe(":" + port, nil))
+	handleWithCors(HandleVideos)
+	log.Println("Server running at http://localhost:" + port)
+	log.Fatal(http.ListenAndServe(":"+port, nil))
 }

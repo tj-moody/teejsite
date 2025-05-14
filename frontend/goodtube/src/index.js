@@ -2,6 +2,7 @@
 const API_BASE = window.location.hostname === "localhost"
     ? "http://localhost:8080"
     : "teejsite-production.up.railway.app";
+// const API_BASE = "teejsite-production.up.railway.app";
 async function request(path) {
     // TODO: Proper checks for possible different responses
     const result = await fetch(`${API_BASE}${path}`);
