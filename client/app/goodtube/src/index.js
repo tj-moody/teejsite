@@ -2,11 +2,13 @@
 // const API_BASE = window.location.hostname === "localhost"
 //   ? "http://localhost:8080"
 //   : "https://teejsite-production.up.railway.app";
-const API_BASE = "https://teejsite-production.up.railway.app";
+const LOCAL_API_BASE = "http://localhost:8080";
+const CLOUD_API_BASE = "https://teejsite-production.up.railway.app";
+let api_base = CLOUD_API_BASE;
 // const API_BASE = "http://localhost:8080";
 async function request(path) {
     // TODO: Proper checks for possible different responses
-    const address = API_BASE + path;
+    const address = api_base + path;
     console.log(`Fetching from ${address}`);
     const result = await fetch(`${address}`);
     if (!result.ok) {
@@ -21,10 +23,16 @@ async function import_videos() {
     // `thumbnail_url`: string
     // `video_url`: string
     // `uploader`: string
-    const videos = await request("/api/goodtube");
+    const result = request("/api/goodtube");
+    if (result === null) {
+        console.error("Request to " + api_base + "/api/goodtube failed");
+        return null;
+    }
+    const videos = await result;
     const container = document.getElementById("videos");
     if (container === null) {
-        return;
+        console.error("Failed to access videos container from index.html");
+        return null;
     }
     container.innerHTML = "";
     for (const video of videos) {
@@ -42,6 +50,27 @@ async function import_videos() {
         container.appendChild(node);
         container.appendChild(title);
         container.appendChild(info);
+    }
+    const api_debug = document.getElementById("api-debug");
+    if (api_debug) {
+        api_debug.innerText = "Text from: " + api_base;
+    }
+}
+async function select_api() {
+    const selectElement = document.getElementById("select-api");
+    const selected_api = selectElement.options[selectElement.selectedIndex];
+    if (selected_api.value === "local") {
+        api_base = LOCAL_API_BASE;
+    }
+    else if (selected_api.value === "cloud") {
+        api_base = CLOUD_API_BASE;
+    }
+    else {
+        console.error("Invalid API option");
+    }
+    const result = await import_videos();
+    if (result !== null) {
+        console.log("Successfully fetched videos from " + selected_api.value);
     }
 }
 import_videos().catch(console.error);

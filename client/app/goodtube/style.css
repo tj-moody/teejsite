@@ -39,3 +39,41 @@ header {
 #video-title {
     color: white;
 }
+
+#center {
+    overflow: hidden;
+    display: inline-block;
+    margin: auto;
+}
+
+#select-api-button,
+#select-api {
+    margin-inline: 1rem;
+    text-align: center;
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    background: #333;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    border-color: #333;
+    border: none;
+}
+
+#select-api-button:hover {
+    background: #555;
+    transform: scale(1.03)
+}
+
+#select-api-button:active {
+    transform: scale(0.98);
+}
+
+#api-debug {
+    text-align: center;
+    margin: 1rem;
+    font-family: monospace;
+}
+

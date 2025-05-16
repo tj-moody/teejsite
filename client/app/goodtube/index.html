@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
@@ -14,8 +14,19 @@
             </h1>
         </header>
 
-        <div id="videos">
-        </div>
+        <center>
+            <select id="select-api">
+                <option value="cloud">Cloud</option>
+                <option value="local">Local</option>
+            </select>
+
+            <button id="select-api-button" onclick="select_api()">
+                Reload
+            </button>
+        </center>
+        <div id="api-debug">Text from: none</div>
+
+        <div id="videos"></div>
 
         <script src="src/index.js"></script>
     </body>

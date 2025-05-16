@@ -11,7 +11,8 @@ services:
     stop_grace_period: 500ms
     build:
       context: client/
+      dockerfile: local.Dockerfile
     ports:
       - "3000:3000"
     volumes:
-      - ./client:/app # Live reloading for all served files
+      - ./client/app:/usr/share/nginx/html:ro
