@@ -20,7 +20,7 @@ type Video struct {
 	URL    string `json:"url"`
 }
 
-var VIDEOS = []Video{
+var VIDEOS = []Video{// {{{
 	{
 		ID:     0,
 		Title:  "Classic - MKTO",
@@ -91,10 +91,13 @@ var VIDEOS = []Video{
 		Author: "user2",
 		Views:  0,
 	},
-}
+}// }}}
 
 func initDB() (*Database, error) {
 	dbURL := os.Getenv("DB_URL")
+	if dbURL == "none" {
+		return nil, nil
+	}
 	if dbURL == "" {
 		return nil, errors.New("DB_URL not set in environment")
 	}
