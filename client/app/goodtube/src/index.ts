@@ -18,13 +18,17 @@ async function request(path: string) {
     return response;
 }
 
+const PLACEHOLDER_THUMBNAIL_URL = "https://placehold.co/600x400";
 async function import_videos(): Promise<void | null> {
     // Video schema:
     // `title`: string
     // `thumbnail_url`: string
     // `video_url`: string
     // `uploader`: string
-    const result = request("/api/goodtube");
+
+    const page = 1;
+    const count = 10;
+    const result = request(`/api/goodtube?page=${page}&count=${count}`);
     if (result === null) {
         console.error("Request to " + api_base + "/api/goodtube failed");
         return null;
@@ -41,7 +45,7 @@ async function import_videos(): Promise<void | null> {
         const node = document.createElement("a");
         node.href = video.video_url;
         node.target = "_blank"; // Open in new tab
-        node.innerHTML = `<img src="${video.thumbnail_url}" alt="${video.title}"/>\n`;
+        node.innerHTML = `<img src="${PLACEHOLDER_THUMBNAIL_URL}" alt="${video.title}"/>\n`;
         node.id = "video-card";
 
         const title = document.createElement("h2");
