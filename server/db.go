@@ -96,6 +96,7 @@ var VIDEOS = []Video{// {{{
 func initDB() (*Database, error) {
 	dbURL := os.Getenv("DB_URL")
 	if dbURL == "none" {
+		log.Println("In no-DB cloud environment, using dummy DB")
 		return nil, nil
 	}
 	if dbURL == "" {

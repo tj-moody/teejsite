@@ -10,16 +10,21 @@ services:
       DB_URL: ${DB_URL}
 
   client:
-    stop_grace_period: 500ms
     build:
       context: client/
+    ports:
+      - "3000:3000"
+  client-dev:
+    build:
+      context: ./client
       dockerfile: local.Dockerfile
-    environment:
-      ENV: local
     ports:
       - "3000:3000"
     volumes:
-      - ./client/app:/usr/share/nginx/html:ro
+      - ./client:/app
+      - /app/node_modules
+    environment:
+      - HOST=0.0.0.0
   db:
     image: postgres:15
     container_name: local-postgres

@@ -1,22 +1,26 @@
 FROM node:20 AS builder
 
 WORKDIR /app
+COPY package*.json ./
+
+RUN npm install
+
 COPY . .
+
+RUN npm run build
 
 WORKDIR /app
 
 CMD ["tsc", "-p", "frontend/"],
 
 FROM nginx:alpine
+copy --from=builder /app/dist /usr/share/nginx/html
 
 # Remove default config
 RUN rm /etc/nginx/conf.d/default.conf
 
 # Copy your custom nginx config
 COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-# Copy built frontend files from builder stage
-COPY --from=builder /app/app /usr/share/nginx/html
 
 EXPOSE 3000
 

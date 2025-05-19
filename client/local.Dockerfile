@@ -1,15 +1,14 @@
-FROM nginx:alpine
+FROM node:18-slim
 
-# Remove default config
-RUN rm /etc/nginx/conf.d/default.conf
+WORKDIR /app
 
-# Copy your custom nginx config
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Install dependencies
+COPY package*.json ./
+RUN npm install
 
-# Create mount target directory (optional)
-RUN mkdir -p /usr/share/nginx/html
+COPY . .
 
 # Expose Nginx port
 EXPOSE 3000
 
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["npm", "run", "dev"]
