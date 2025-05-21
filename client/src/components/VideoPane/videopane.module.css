@@ -1,0 +1,41 @@
+.video_pane {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+}
+
+.video_pane:hover {
+    transform: scale(1.02);
+    background-color: #202020;
+}
+
+.video_pane div {
+    padding: 0rem 1rem;
+    padding-bottom: 1rem;
+}
+
+.video_pane h3 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.video_pane p {
+    font-size: 1rem;
+    margin: 0;
+}
+
+.video_pane img {
+    width: 95%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 1rem;
+    display: block;
+    margin: auto;
+    margin-top: 0.5rem;
+}

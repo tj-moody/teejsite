@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/home";
-import Goodtube from "./pages/goodtube";
+import Home from "./pages/Home/home";
+import Goodtube from "./pages/Goodtube/goodtube";
 import "./App.css";
 
 function App() {

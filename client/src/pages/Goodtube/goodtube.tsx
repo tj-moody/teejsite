@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
-import Header from "../components/Header/header";
-import DebugApi from "../components/DebugApi/debugapi";
+import Header from "../../components/Header/header";
+import DebugApi from "../../components/DebugApi/debugapi";
+import VideoPane from "../../components/VideoPane/videopane";
+import styles from "./goodtube.module.css";
 
-type Video = {
+export type Video = {
     id: string;
     title: string;
     author: string;
@@ -10,7 +12,6 @@ type Video = {
     url: string;
 };
 
-const PLACEHOLDER_THUMBNAIL_URL = "https://placehold.co/600x400";
 const Goodtube = () => {
     const [apiSource, setApiSource] = useState("local");
     const [displayApiSource, setDisplayApiSource] = useState(apiSource);
@@ -53,23 +54,9 @@ const Goodtube = () => {
                 setApiSource={setApiSource}
                 displayApiSource={displayApiSource}
             />
-            <div>Text from: {displayApiSource}</div>
-            <div>
+            <div className={styles.video_grid}>
                 {videos.map((video) => (
-                    <>
-                        <a href={video.url} target="_blank">
-                            <img
-                                src={PLACEHOLDER_THUMBNAIL_URL}
-                                alt={video.title}
-                            />
-                        </a>
-                        <div key={video.id}>
-                            <h3>{video.title}</h3>
-                            <p>
-                                {video.author} — {video.views} views
-                            </p>
-                        </div>
-                    </>
+                    <VideoPane key={video.id} video={video} />
                 ))}
             </div>
         </>
