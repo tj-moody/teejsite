@@ -1,4 +1,4 @@
-FROM node:20 AS builder
+FROM oven/bun:latest AS builder
 
 WORKDIR /app
 COPY package*.json ./
@@ -7,7 +7,7 @@ RUN npm install
 
 COPY . .
 
-RUN npm run build
+RUN bun run build
 
 WORKDIR /app
 
