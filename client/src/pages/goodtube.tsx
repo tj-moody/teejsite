@@ -3,11 +3,11 @@ import Header from "../components/Header/header";
 import DebugApi from "../components/DebugApi/debugapi";
 
 type Video = {
-    ID: string;
+    id: string;
     title: string;
     author: string;
     views: string;
-    URL: string;
+    url: string;
 };
 
 const PLACEHOLDER_THUMBNAIL_URL = "https://placehold.co/600x400";
@@ -57,22 +57,17 @@ const Goodtube = () => {
             <div>
                 {videos.map((video) => (
                     <>
-                        <img
-                            src={PLACEHOLDER_THUMBNAIL_URL}
-                            alt={video.title}
-                        />
-                        <div key={video.ID}>
+                        <a href={video.url} target="_blank">
+                            <img
+                                src={PLACEHOLDER_THUMBNAIL_URL}
+                                alt={video.title}
+                            />
+                        </a>
+                        <div key={video.id}>
                             <h3>{video.title}</h3>
                             <p>
                                 {video.author} — {video.views} views
                             </p>
-                            <a
-                                href={video.URL}
-                                target="_blank"
-                                rel="noreferrer"
-                            >
-                                Watch
-                            </a>
                         </div>
                     </>
                 ))}
