@@ -3,7 +3,7 @@ FROM oven/bun:latest AS builder
 WORKDIR /app
 COPY package*.json ./
 
-RUN npm install
+RUN bun install
 
 COPY . .
 
