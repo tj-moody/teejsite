@@ -12,6 +12,12 @@ type Server struct {
 	db *Database
 }
 
+type VideoUploadRequest struct {
+	URL    string `json:"url"`
+	Title  string `json:"title"`
+	Author string `json:"author"`
+}
+
 func enableCORS(w http.ResponseWriter) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
@@ -33,6 +39,45 @@ func handleWithCors(handler func(w http.ResponseWriter, r *http.Request)) func(h
 		handler(w, r)
 
 	}
+}
+
+// Update the POST handler
+func (s *Server) goodtubePostHandler(w http.ResponseWriter, r *http.Request) {
+	var req VideoUploadRequest
+
+	err := json.NewDecoder(r.Body).Decode(&req)
+	if err != nil {
+		http.Error(w, "Invalid request body", http.StatusBadRequest)
+		return
+	}
+
+	if req.URL == "" {
+		http.Error(w, "URL is required", http.StatusBadRequest)
+		return
+	}
+
+	if req.Title == "" {
+		http.Error(w, "Title is required", http.StatusBadRequest)
+		return
+	}
+
+	if req.Author == "" {
+		http.Error(w, "Author is required", http.StatusBadRequest)
+		return
+	}
+
+	err = s.db.addVideo(req.URL, req.Title, req.Author)
+	if err != nil {
+		log.Println("Error adding video:", err)
+		http.Error(w, "Failed to add video: "+err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusCreated)
+	json.NewEncoder(w).Encode(map[string]string{
+		"message": "Video added successfully",
+	})
 }
 
 func (s *Server) goodtubeGetHandler(w http.ResponseWriter, r *http.Request) {
@@ -70,6 +115,8 @@ func (s *Server) goodtubeGetHandler(w http.ResponseWriter, r *http.Request) {
 func (s *Server) goodtubeHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodGet {
 		s.goodtubeGetHandler(w, r)
+	} else if r.Method == http.MethodPost {
+		s.goodtubePostHandler(w, r)
 	} else {
 		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
 		return

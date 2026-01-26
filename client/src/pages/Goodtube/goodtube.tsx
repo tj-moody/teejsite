@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Header from "../../components/Header/header";
 import DebugApi from "../../components/DebugApi/debugapi";
 import VideoPane from "../../components/VideoPane/videopane";
+import VideoUpload from "../../components/VideoUpload/videoupload";
 import styles from "./goodtube.module.css";
 
 export type Video = {
@@ -54,6 +55,7 @@ const Goodtube = () => {
                 setApiSource={setApiSource}
                 displayApiSource={displayApiSource}
             />
+            <VideoUpload apiSource={apiSource} onVideoAdded={loadVideos} />
             <div className={styles.video_grid}>
                 {videos.map((video) => (
                     <VideoPane key={video.id} video={video} />
