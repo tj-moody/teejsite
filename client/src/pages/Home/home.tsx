@@ -246,7 +246,7 @@ const Home = () => {
                                         Specific:
                                             "Design, build, and publicly release a complete software project outside of coursework.",
                                         Measurable:
-                                            "Project is documented, deployed, and shared publicly by end of Winter 2026 semester.",
+                                            "Project is documented, deployed, and shared publicly by end of 2026.",
                                         Achievable:
                                             "I have the technical foundation and have shipped smaller projects before.",
                                         Relevant:
