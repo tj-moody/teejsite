@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./Program.css";
+import "./program.css";
 
 import type { Day, DayId, ProgramKey } from "./program.types";
 import DayTimesEditor from "../../components/DayTimesEditor/DayTimesEditor.tsx";
