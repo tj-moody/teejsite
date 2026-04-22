@@ -276,14 +276,14 @@
                             {
                                 "name": "Couch stretch",
                                 "scheme": "90s / side",
-                                "detail": "Quad and hip flexor stretch — tightest muscle group for most athletes. Knee on floor, rear foot against a wall, drive hips forward.",
+                                "detail": "Quad and hip flexor stretch, the tightest muscle group for most athletes. Knee on floor, rear foot against a wall, drive hips forward.",
                                 "cue": "Squeeze glute of the back leg to increase the stretch."
                             },
                             {
                                 "name": "Pigeon pose",
                                 "scheme": "90s / side",
                                 "detail": "Deep external hip rotation stretch. Opens the hip capsule in the rotation direction used when you plant to change direction.",
-                                "cue": "Don't let hips rotate — keep them square to the floor."
+                                "cue": "Don't let hips rotate; keep them square to the floor."
                             },
                             {
                                 "name": "Standing hamstring floss (PNF)",
@@ -294,7 +294,7 @@
                             {
                                 "name": "Adductor rock-back (kneeling)",
                                 "scheme": "2×10 ea",
-                                "detail": "Kneeling, one leg out to side, rock back over hips. Opens the groin — tight adductors limit defensive range badly.",
+                                "detail": "Kneeling, one leg out to side, rock back over hips. Opens the groin; tight adductors limit defensive range badly.",
                                 "cue": "Keep the extended leg straight, toes pointing up."
                             }
                         ]
@@ -425,19 +425,19 @@
                             {
                                 "name": "Back squat",
                                 "scheme": "3×5 @ 75%",
-                                "detail": "Same movement as normal but half the volume. You are reminding your nervous system to be powerful, not building new tissue. Three work sets, that's it.",
+                                "detail": "Same movement as normal but half the volume. You are reminding your nervous system to be powerful, not building new tissue.",
                                 "cue": "Explosive concentric. Normal warm-up sets to get there."
                             },
                             {
                                 "name": "Trap bar deadlift",
                                 "scheme": "3×4 @ 75%",
-                                "detail": "Full-body posterior chain primer. Primes glutes and hamstrings for the weekend. Reset each rep — no touch-and-go.",
-                                "cue": "Hips and shoulders rise together. Don't rush it."
+                                "detail": "Full-body posterior chain primer. Primes glutes and hamstrings for the weekend. Reset each rep, no touch-and-go.",
+                                "cue": ""
                             },
                             {
                                 "name": "Lateral bound",
                                 "scheme": "3×5 / side",
-                                "detail": "Closes the session with sport-specific reactive power. Not for fatigue — for feel and sharpness. Stick every landing for 2 seconds.",
+                                "detail": "Closes the session with sport-specific reactive power. For feel and sharpness. Stick every landing for 2 seconds.",
                                 "cue": "Quality only. Stop early if legs feel flat."
                             }
                         ]
@@ -461,7 +461,7 @@
                         "lbl": "Feel after"
                     }
                 ],
-                "note": "This is not a workout. It is a neurological primer. The goal is to feel awake and springy walking out, not tired. If anything feels heavy, cut it short. Hydrate aggressively today.",
+                "note": "It is a neurological primer. The goal is to feel awake and springy walking out, not tired. If anything feels heavy, cut it short. Hydrate aggressively today.",
                 "sections": [
                     {
                         "label": "Activation · 20 min max",
@@ -481,13 +481,13 @@
                             {
                                 "name": "10m sprint",
                                 "scheme": "4×, walk back",
-                                "detail": "95% effort — not a time trial. Feel your legs accelerate. Re-grooves sprint mechanics so Saturday's first explosive effort feels familiar.",
+                                "detail": "95% effortd. Feel your legs accelerate. Re-grooves sprint mechanics so Saturday's first explosive effort feels familiar.",
                                 "cue": "Pump arms, stay relaxed in the face and shoulders."
                             },
                             {
                                 "name": "Hip 90/90 + couch stretch",
                                 "scheme": "60s / side",
-                                "detail": "Keep hips open going into the tournament. Tight hips in game 1 lead to poor mechanics and compound fatigue throughout the day.",
+                                "detail": "Keep hips open; tight hips in game 1 lead to poor mechanics and compound fatigue throughout the day.",
                                 "cue": ""
                             }
                         ]
@@ -587,7 +587,7 @@
                             {
                                 "name": "Easy bike or walk",
                                 "scheme": "20 min, Zone 1",
-                                "detail": "Light blood flow flushes inflammatory byproducts from muscle tissue. Heart rate under 125. This is not exercise — it is flushing.",
+                                "detail": "Light blood flow flushes inflammatory byproducts from muscle tissue. Heart rate under 125. This is for flushing only.",
                                 "cue": ""
                             },
                             {
@@ -605,7 +605,7 @@
                             {
                                 "name": "Nutrition focus",
                                 "scheme": "All day",
-                                "detail": "Eat 1g protein per lb bodyweight today. Include anti-inflammatory foods (salmon, blueberries, ginger). Avoid alcohol — it directly impairs muscle protein synthesis for 48h.",
+                                "detail": "Eat 1g protein per lb bodyweight today. Include anti-inflammatory foods (salmon, blueberries, ginger) and avoid alcohol, as it impairs muscle protein synthesis for 48h.",
                                 "cue": ""
                             }
                         ]
@@ -643,7 +643,7 @@
                         "lbl": "Rep scheme"
                     }
                 ],
-                "note": "Drop the weight, not the movement. Same exercises as regular Thursday but at 60–65% load. Keeps the adaptation signal going without deepening the fatigue hole. This is intentional periodization.",
+                "note": "Same exercises as a regular strength day but at 60–65% load, keeping the adaptation signal without deepening the fatigue hole.",
                 "sections": [
                     {
                         "label": "Main work — reduced load",
@@ -651,13 +651,13 @@
                             {
                                 "name": "Back squat",
                                 "scheme": "3×8 @ 60%",
-                                "detail": "Higher rep, lower load. Keeps quad stimulus going. Do not push depth beyond what feels comfortable.",
+                                "detail": "Keeps quad stimulus going. Do not push depth beyond what feels comfortable.",
                                 "cue": ""
                             },
                             {
                                 "name": "Romanian deadlift",
                                 "scheme": "3×10",
-                                "detail": "Lighter RDL. Hamstring maintenance prevents injury spikes after high-volume weekends — non-negotiable even in a deload week.",
+                                "detail": "Hamstring maintenance prevents injury spikes after high-volume weekends.",
                                 "cue": ""
                             },
                             {
@@ -669,7 +669,7 @@
                             {
                                 "name": "Hip thrust",
                                 "scheme": "3×12 @ moderate",
-                                "detail": "Full range glute work. Easy to autoregulate — go by feel. Should feel like moderate effort, not a grind.",
+                                "detail": "Full range glute work; autoregulate by feel. Should feel like moderate effort.",
                                 "cue": ""
                             }
                         ]
@@ -693,7 +693,7 @@
                         "lbl": "This week"
                     }
                 ],
-                "note": "Goal: remind your nervous system it can still be explosive. Maintenance, not development. Five total sets of quality work, then stop. Skipping this entirely for two weeks causes a measurable drop in reactive power.",
+                "note": "Maintain nervous system explosiveness. Five total sets of quality work, then stop. Skipping this entirely for two weeks causes a measurable drop in reactive power.",
                 "sections": [
                     {
                         "label": "Power maintenance only",
@@ -701,8 +701,8 @@
                             {
                                 "name": "Box jump",
                                 "scheme": "3×4",
-                                "detail": "Step up, step off, immediately jump. Focus on ground contact time being fast. If they feel heavy and slow, that's fine — just do them and leave.",
-                                "cue": "Three seconds between reps. Don't grind."
+                                "detail": "Focus on ground contact time being fast. If they feel heavy and slow, that's fine, just do them and leave.",
+                                "cue": "Three seconds between reps, don't grind."
                             },
                             {
                                 "name": "Lateral bound",
@@ -726,7 +726,7 @@
                             {
                                 "name": "Couch stretch",
                                 "scheme": "90s / side",
-                                "detail": "Priority #1 this week. Quads and hip flexors will be destroyed from the tournament weekend.",
+                                "detail": "High priority for recovery. Quads and hip flexors will be destroyed from the weekend.",
                                 "cue": ""
                             },
                             {
@@ -738,13 +738,13 @@
                             {
                                 "name": "Calf & soleus stretch",
                                 "scheme": "60s each",
-                                "detail": "Often neglected post-tournament. Tight calves contribute to knee pain and poor cutting mechanics.",
+                                "detail": "Often neglected; tight calves contribute to knee pain and poor cutting mechanics.",
                                 "cue": ""
                             },
                             {
                                 "name": "Thoracic spine rotation",
                                 "scheme": "2×10 / side",
-                                "detail": "Upper back mobility. Helps with armswing and throwing mechanics tightened by a full tournament weekend.",
+                                "detail": "Upper back mobility helps with armswing and throwing mechanics tightened by a full tournament weekend.",
                                 "cue": ""
                             }
                         ]
@@ -837,32 +837,32 @@
                             {
                                 "name": "Back squat",
                                 "scheme": "5×5 @ 80–85%",
-                                "detail": "True progressive overload — add 2.5kg when you hit all 5×5 cleanly. This is how you actually get stronger legs, not just maintain them.",
-                                "cue": "Video yourself — check depth and knee tracking weekly."
+                                "detail": "True progressive overload; add 2.5kg when you hit all 5×5 cleanly..",
+                                "cue": "Video yourself - check depth and knee tracking weekly."
                             },
                             {
                                 "name": "Bulgarian split squat",
                                 "scheme": "4×8 / side",
-                                "detail": "Go heavier than in-season. Directly increases your cutting force output for next season.",
+                                "detail": "Go heavier than in-season. Directly increases cutting force output.",
                                 "cue": ""
                             },
                             {
                                 "name": "Leg press",
                                 "scheme": "3×12",
-                                "detail": "Volume accumulation for quad hypertrophy. Offseason is the time for some bodybuilding-style volume — bigger quads mean more reserve capacity before legs tire out.",
+                                "detail": "Volume accumulation for quad hypertrophy. Offseason is the time for hypertrophy work; bigger quads mean more reserve capacity before legs tire out.",
                                 "cue": "Full range — don't short the depth."
                             },
                             {
                                 "name": "Nordic hamstring curl",
                                 "scheme": "4×6",
-                                "detail": "Increase volume from in-season. Most athletes are significantly undertrained in hamstrings — this is where you close the gap.",
+                                "detail": "Increase volume from in-season. Most athletes are significantly undertrained in hamstrings.",
                                 "cue": "Aim for 5s eccentric descent by week 8."
                             },
                             {
                                 "name": "Copenhagen plank",
                                 "scheme": "3×30s / side",
-                                "detail": "Adductor strength — the offseason is the time to address the groin. Adductor weakness is the most common cause of groin strains in field sports.",
-                                "cue": "Hip stays level. Don't let it sag."
+                                "detail": "Adductor weakness is the most common cause of groin strains in field sports.",
+                                "cue": "Don't allow the hips to sag."
                             }
                         ]
                     }
@@ -885,7 +885,7 @@
                         "lbl": "Every rep"
                     }
                 ],
-                "note": "During the season your speed training is scattered across practice. Now you can structure it properly. Speed is highly trainable — 8 weeks of dedicated sprint work will make a noticeable difference in your first step.",
+                "note": "During the season your speed training is scattered across practice. Now you can structure it properly. Speed is highly trainable - 8 weeks of dedicated sprint work will make a noticeable difference in your first step.",
                 "sections": [
                     {
                         "label": "Sprint development",
@@ -893,8 +893,8 @@
                             {
                                 "name": "Acceleration sprints",
                                 "scheme": "8×20m, 3min rest",
-                                "detail": "Focus exclusively on the first 20m. Drive phase: low body angle, powerful arm drive, knees pumping high. Walk back for full recovery.",
-                                "cue": "Lean forward at 45° for first 10m, then rise. Never stand up early."
+                                "detail": "Focus on the shin angle, powerful arm drive, knees pumping high of first 20m/drive phase. Walk back for full recovery.",
+                                "cue": "Lean forward at 45° (shin angles!) for first 10m, then rise. Never stand up early."
                             },
                             {
                                 "name": "Flying 10s",
@@ -905,13 +905,13 @@
                             {
                                 "name": "T-drill",
                                 "scheme": "6 reps, timed",
-                                "detail": "Sprint forward 5m, shuffle 2.5m left, shuffle 5m right, shuffle back, backpedal. Time yourself — aim to improve over the offseason.",
-                                "cue": "Stay low in the shuffles. Don't cross your feet."
+                                "detail": "Sprint forward 5m, shuffle 2.5m left, shuffle 5m right, shuffle back, backpedal. Time and aim to improve.",
+                                "cue": "Stay low in the shuffles and don't cross feet."
                             },
                             {
                                 "name": "Reactive cut drill",
                                 "scheme": "6 reps",
-                                "detail": "Partner points left/right randomly when you're 3m away — you cut that direction and sprint 5m. Trains reactive decision + movement.",
+                                "detail": "Partner points left/right randomly when you're 3m away, cut that direction and sprint 5m. Trains reactive decision + movement.",
                                 "cue": ""
                             }
                         ]

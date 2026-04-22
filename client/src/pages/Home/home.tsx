@@ -22,7 +22,8 @@ const Home = () => {
                         <p className="hero-label">ENGINEERING PORTFOLIO</p>
                         <h1 className="hero-name">TJ Moody</h1>
                         <p className="hero-tagline">
-                            BSE. Computer Science · University of Michigan · Class of 2028
+                            BSE. Computer Science · University of Michigan ·
+                            Class of 2028
                         </p>
                     </div>
                 </div>
@@ -84,6 +85,19 @@ const Home = () => {
                                 stepping outside familiar environments and
                                 exposing myself to differing backgrounds and
                                 worldviews.
+                                <br />
+                                <br />
+                                <b>
+                                    Related Engineering Competency:
+                                    Global/Cultural Awareness
+                                </b>
+                                <br />
+                                Apart from being really enjoyable, being
+                                immersed in alternate perspectives and values
+                                really allowed me to examine the underlying
+                                beliefs and biases I hold but had never noticed,
+                                and taught me how to engage with those differing
+                                perspectives earnestly and effectively.
                             </p>
                         </article>
 
@@ -103,6 +117,15 @@ const Home = () => {
                                 taught me to balance the logistical
                                 responsibilities of leadership with trust and
                                 personal connection.
+                                <br />
+                                <br />
+                                <b>Related Engineering Competency: Leadership</b>
+                                <br />
+                                This position continues to teach me how to lead
+                                by example and facilitate a culture for the
+                                group, as I'm always forced to introspect on how
+                                my interactions with my teammates facilitate
+                                trust and let us keep enjoying frisbee.
                             </p>
                         </article>
                     </section>
