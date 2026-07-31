@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./program.css";
 
 import type { Day, DayId, ProgramKey } from "./program.types";
-import DayTimesEditor from "../../components/DayTimesEditor/DayTimesEditor.tsx";
+import DayTimesEditor from "./DayTimesEditor.tsx";
 import { generateICS, downloadICS } from "./ics";
 import PROGRAMS from "./program.json";
 

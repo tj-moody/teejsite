@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import Header from "../../components/Header/header";
-import DebugApi from "../../components/DebugApi/debugapi";
-import VideoPane from "../../components/VideoPane/videopane";
-import VideoUpload from "../../components/VideoUpload/videoupload";
+import Header from "./components/Header/header";
+import DebugApi from "./components/DebugApi/debugapi";
+import VideoPane from "./components/VideoPane/videopane";
+import VideoUpload from "./components/VideoUpload/videoupload";
 import styles from "./goodtube.module.css";
 
 export type Video = {
